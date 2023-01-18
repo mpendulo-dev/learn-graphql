@@ -3,15 +3,12 @@ import { useQuery, gql } from "@apollo/client";
 import { GET_BOOKS } from "../GraphQL/Queries";
 
 const BookList = () => {
-    
     const { error, loading, data } = useQuery(GET_BOOKS);
     const [books, setBooks] = useState([]);
 
     useEffect(() => {
-        setBooks(data.books);
+        setBooks(data && data.books);
     }, [data]);
-
-    console.log(books);
 
     return (
         <div>
@@ -19,8 +16,8 @@ const BookList = () => {
             {error && <p>Error: {error.message}</p>}
             {books &&
                 books.map((data) => (
-                    <ul>
-                        <li key={data.id}>{data.name}</li>
+                    <ul key={data.id}>
+                        <li>{data.name}</li>
                     </ul>
                 ))}
         </div>

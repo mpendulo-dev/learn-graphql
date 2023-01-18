@@ -5,6 +5,17 @@ export const GET_BOOKS = gql`
         books {
             name
             genre
+            id
+        }
+    }
+`;
+
+export const GET_AUTHORS = gql`
+    query {
+        authors {
+            name
+            age
+            id
         }
     }
 `;
