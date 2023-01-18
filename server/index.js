@@ -4,10 +4,12 @@ const schema = require('./schema/schema')
 require('dotenv').config()
 const port = process.env.PORT || 5000
 const mongoose = require('mongoose')
+const cors = require('cors')
 
 const app = express()
 
-
+//allow cross origin requests
+app.use(cors())
 //connect to database
 mongoose.connect('mongodb+srv://Mpendulo:JZTVSl8pPpXnNmrx@ninja.3hlbgus.mongodb.net/?retryWrites=true&w=majority')
 mongoose.connection.once('open', () => {
