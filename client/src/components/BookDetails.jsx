@@ -7,19 +7,40 @@ const BookDetails = ({ bookId }) => {
 		variables: {
 			id: bookId,
 		},
+		refetchQueries: [GET_BOOK],
 	});
 	const [authorBook, setAuthorBook] = useState([]);
 
 	useEffect(() => {
-		setAuthorBook(data && data);
+		setAuthorBook(data !== undefined ? data.book : []);
 	}, [data]);
 
-	console.log('book details', authorBook);
 	return (
 		<div id='book-details'>
 			{loading && <p>Loading...</p>}
-			{error && <p>Error: {error.message}</p>}
-			<p>Output book details</p>
+
+			{authorBook.length !== 0 ? (
+				<div>
+					<p>Output book details</p>
+					<h2>Book name: {authorBook.name}</h2>
+					<p>Genre: {authorBook.genre}</p>
+					<p>Author name: {authorBook.author.name}</p>
+					<p>Author age: {authorBook.author.age}</p>
+					<p>Books written by Author: </p>
+					{authorBook &&
+						authorBook.author.books.map(books => (
+							<>
+								<ul className='other-books'>
+									<li key={books.id}>{books.name}</li>
+								</ul>
+							</>
+						))}
+				</div>
+			) : (
+				<>
+					<p>No book selected ...</p>
+				</>
+			)}
 		</div>
 	);
 };

@@ -12,11 +12,10 @@ const BookList = () => {
 		setBooks(data && data.books);
 	}, [data]);
 
-	// console.log(books);
 	const getBookId = id => {
 		setBookId(id && id);
 	};
-	console.log('book id', bookId);
+
 	return (
 		<>
 			<div>
@@ -24,7 +23,7 @@ const BookList = () => {
 				{error && <p>Error: {error.message}</p>}
 				{books &&
 					books.map(data => (
-						<ul key={data.id} id='book-list'>
+						<ul key={data.id} id='book-list' className='container'>
 							<li onClick={() => getBookId(data.id)}>
 								{data.name}
 							</li>
