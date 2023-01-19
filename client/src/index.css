@@ -27,10 +27,10 @@ body {
 	margin: 12px;
 	padding: 10px;
 	border-radius: 4px;
-	border: 1px solid #880e4f;
+	border: 1px solid #8689ea;
 	box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
 	cursor: pointer;
-	color: #880e4f;
+	color: #5356b1;
 }
 
 form {
@@ -63,7 +63,7 @@ form select {
 form button {
 	color: #fff;
 	font-size: 2em;
-	background: #ad1457;
+	background: #2569e9;
 	border: 0;
 	padding: 0 10px;
 	border-radius: 50%;
@@ -79,7 +79,7 @@ form button {
 	right: 0;
 	width: 40%;
 	height: 100%;
-	background: #ad1457;
+	background: #2569e9;
 	padding: 30px;
 	overflow: auto;
 	box-shadow: -2px -3px 5px rgba(0, 0, 0, 0.3);
