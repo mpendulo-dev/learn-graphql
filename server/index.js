@@ -11,7 +11,7 @@ const app = express()
 //allow cross origin requests
 app.use(cors())
 //connect to database
-mongoose.connect('mongodb+srv://Mpendulo:JZTVSl8pPpXnNmrx@ninja.3hlbgus.mongodb.net/?retryWrites=true&w=majority')
+mongoose.connect(process.env.DB_LINK)
 mongoose.connection.once('open', () => {
     console.log(`connected to database`)
 })
