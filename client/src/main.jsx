@@ -10,7 +10,7 @@ import {
 } from "@apollo/client";
 
 const client = new ApolloClient({
-    uri: "http://localhost:5000/graphql",
+    uri: process.env.SERVER_URL,
     cache: new InMemoryCache(),
 });
 
